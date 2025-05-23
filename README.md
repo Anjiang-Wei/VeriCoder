@@ -35,8 +35,8 @@ Unlike prior datasets that only ensure syntactic correctness, our dataset guaran
 1. Clone the repository:
 
    ```bash
-   git clone ...
-   cd ...
+   git clone --recursive git@github.com:Anjiang-Wei/VeriCoder.git
+   git submodule update --init --recursive
    ```
    Now in this repo, you have a structure like this:
    ```
