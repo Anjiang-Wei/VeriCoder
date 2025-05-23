@@ -1,0 +1,70 @@
+module synchronizer(
+    input              clk_a  , 
+    input              clk_b  ,   
+    input              arstn  ,
+    input              brstn  ,
+    input      [3:0]   data_in,
+    input              data_en,
+
+    output reg [3:0]   dataout
+);
+
+    // Internal registers
+    reg [3:0] data_reg;      // To store the data_in value from clk_a domain
+    reg       en_data_reg;   // To store the data_en signal from clk_a domain
+
+    // Control registers for synchronizing the enable signal into clk_b domain
+    reg       en_clap_one;
+    reg       en_clap_two;
+
+    //=====================================================================
+    // Data Register: Captures data_in on clk_a rising edge; asynchronous reset
+    //=====================================================================
+    always @(posedge clk_a or negedge arstn)
+    begin
+        if (!arstn)
+            data_reg <= 4'b0;
+        else
+            data_reg <= data_in;
+    end
+
+    //=====================================================================
+    // Enable Data Register: Captures data_en on clk_a rising edge; asynchronous reset
+    //=====================================================================
+    always @(posedge clk_a or negedge arstn)
+    begin
+        if (!arstn)
+            en_data_reg <= 1'b0;
+        else
+            en_data_reg <= data_en;
+    end
+
+    //=====================================================================
+    // Enable Control Registers: Two-stage synchronizer for en_data_reg in clk_b domain
+    //=====================================================================
+    always @(posedge clk_b or negedge brstn)
+    begin
+        if (!brstn) begin
+            en_clap_one <= 1'b0;
+            en_clap_two <= 1'b0;
+        end
+        else begin
+            en_clap_one <= en_data_reg;
+            en_clap_two <= en_clap_one;
+        end
+    end
+
+    //=====================================================================
+    // Output Assignment: Transfer data_reg to dataout when en_clap_two is active (synchronized)
+    //=====================================================================
+    always @(posedge clk_b or negedge brstn)
+    begin
+        if (!brstn)
+            dataout <= 4'b0;
+        else if (en_clap_two)
+            dataout <= data_reg;
+        else
+            dataout <= dataout; // Retain previous value when en_clap_two is inactive
+    end
+
+endmodule

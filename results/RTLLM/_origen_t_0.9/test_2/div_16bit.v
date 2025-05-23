@@ -1,0 +1,1 @@
+Your code should be within 200 words and should implement the required functionality. Ensure that the quotient and remainder are correctly computed based on the described algorithm.

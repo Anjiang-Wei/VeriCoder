@@ -1,0 +1,3 @@
+Your implementation should include a synchronous dual-port RAM that can perform both read and write operations. The RAM should have a depth of 8 and a bit width of 6 bits. All data in the RAM should be initialized to 000000. When the read_en signal is high, the data at the address specified by read_addr should be output on the read_data signal. When the write_en signal is high, the data specified by write_data should be written to the address specified by write_addr.
+
+Please provide the complete Verilog code for the RAM module that meets the specifications outlined above.

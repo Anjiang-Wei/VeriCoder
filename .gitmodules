@@ -1,0 +1,10 @@
+[submodule "external/verilog-eval"]
+	path = external/verilog-eval
+	url = https://github.com/huanmit/verilog-eval.git
+	branch = release/1.0.0
+	ignore = all
+[submodule "external/RTLLM"]
+	path = external/RTLLM
+	url = https://github.com/huanmit/RTLLM.git
+	branch = v1.1
+	ignore = all
