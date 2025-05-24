@@ -3,7 +3,8 @@
 [![arXiv](https://img.shields.io/badge/arXiv-2504.15659-b31b1b.svg)](https://arxiv.org/pdf/2504.15659)
 [![License](https://img.shields.io/badge/license-Apache%202.0-green.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Python](https://img.shields.io/badge/Python->=3.11-blue.svg)](https://www.python.org/downloads/)
-[![HuggingFace](https://img.shields.io/badge/🤗%20Hugging%20Face-VeriCoder_Datasets-orange.svg)](https://huggingface.co/datasets/LLM4Code/expanded_origen_120k)
+[![Model](https://img.shields.io/badge/🤗%20HuggingFace-VeriCoder%20Model-blue.svg)](https://huggingface.co/LLM4Code/VeriCoder_Qwen14B)
+[![Dataset](https://img.shields.io/badge/🤗%20HuggingFace-Expanded%20Origen%20120k-orange.svg)](https://huggingface.co/datasets/LLM4Code/expanded_origen_120k)
 
 ## Overview
 
